@@ -1,0 +1,6 @@
+rootProject.name = 'kotlin-js-print-pdf.root'
+include ':kotlin-js-print-pdf.backend'
+project(':kotlin-js-print-pdf.backend').projectDir = "$rootDir/backend" as File
+
+include ':kotlin-js-print-pdf.front'
+project(':kotlin-js-print-pdf.front').projectDir = "$rootDir/front" as File

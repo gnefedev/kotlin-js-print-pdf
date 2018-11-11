@@ -12,6 +12,11 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+
+    compile "com.itextpdf:kernel:$itextVersion"
+    compile "com.itextpdf:io:$itextVersion"
+    compile "com.itextpdf:layout:$itextVersion"
+    compile "com.itextpdf:html2pdf:$itextPdfHtmlVersion"
 }
 
 mainClassName = "com.gnefedev.backend.ApplicationKt"

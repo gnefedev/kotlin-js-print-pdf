@@ -5,13 +5,15 @@ import com.itextpdf.html2pdf.HtmlConverter
 import com.itextpdf.kernel.geom.PageSize
 import com.itextpdf.kernel.pdf.PdfDocument
 import com.itextpdf.kernel.pdf.PdfWriter
-import com.itextpdf.layout.font.FontProvider
 import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream
 import org.intellij.lang.annotations.Language
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.core.io.InputStreamResource
 import org.springframework.core.io.Resource
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 fun main(args: Array<String>) {
@@ -23,7 +25,11 @@ class Application
 
 @RestController
 class PdfController {
-    fun printTable(html: String): Resource = ByteOutputStream()
+    @GetMapping("/api/pdf/test")
+    fun test() = "test"
+
+    @PostMapping("/api/pdf/print")
+    fun printTable(@RequestBody html: String): Resource = ByteOutputStream()
         .use { outputStream ->
             writePdf(outputStream, html)
             val result = InputStreamResource(outputStream.newInputStream())

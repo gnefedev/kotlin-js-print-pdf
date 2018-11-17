@@ -26,12 +26,6 @@ dependencies {
     compile "org.jetbrains:kotlin-react-router-dom:$kotlinReactRouterVersion"
 }
 
-kotlin {
-    experimental {
-        coroutines 'enable'
-    }
-}
-
 [compileKotlin2Js, compileTestKotlin2Js]*.configure {
     kotlinOptions {
         sourceMap = true
@@ -58,5 +52,4 @@ task devServer(type: NpmTask, dependsOn: [npmInstall]) {
 task bundle(type: NpmTask, dependsOn: [npmInstall]) {
     group = 'Build'
     args = ["run", "bundle"]
-    //752kb
 }
